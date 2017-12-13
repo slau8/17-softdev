@@ -47,7 +47,7 @@ var changeColor = function(dist) {
 
 
 var findIt = function(e) {
-    distance(targetX, targetY, e.x, e.y);
+    distance(targetX, targetY, e.clientX, e.clientY);
     changeColor(dist);
 };
 
@@ -58,9 +58,11 @@ var buttonCallback = function(e){
 var clickCallback = function(e){
     if (dist < 50) {
 	heading.innerHTML = "Hey, you found the cow! "
-	//var cow = document.createElement("img")
-	//cow.setAttribute("src", "https://vignette.wikia.nocookie.net/harvestmoondscute/images/a/a4/Cow.jpg/revision/latest?cb=20120526004550");
-	//heading.appendChild(cow);
+	var cow = document.createElement("img")
+	cow.setAttribute("src", "https://vignette.wikia.nocookie.net/harvestmoondscute/images/a/a4/Cow.jpg/revision/latest?cb=20120526004550");
+	cow.setAttribute("width","4%");
+	cow.setAttribute("height","4%");
+	heading.appendChild(cow);
 	var button = document.createElement("button");
 	button.innerHTML = "Play again";
 	button.addEventListener("click", buttonCallback);
